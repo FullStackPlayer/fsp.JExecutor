@@ -1,0 +1,42 @@
+{
+  "name": "fsp-jexecutor",
+  "version": "1.0.0",
+  "description": "A JBDAP executor written in TypeScript, compatible with both Nodejs and Deno.",
+  "main": "./dist/cjs/JExecutor.js",
+  "module": "./dist/esm/JExecutor.js",
+  "typings": "./dist/cjs/JExecutor.d.ts",
+  "scripts": {
+    "prebuild:cjs": "node ./script/prebuild.js",
+    "build:cjs": "tsc -p tsconfig.json",
+    "postbuild:cjs": "node ./script/postbuild.js",
+    "prebuild:esm": "node ./script/prebuild.js",
+    "build:esm": "tsc -p tsconfig-esm.json",
+    "postbuild:esm": "node ./script/postbuild.js",
+    "build:all": "yarn build:cjs && yarn build:esm",
+    "pretest:cjs": "yarn build:all",
+    "test:cjs": "jest ./test/cjs/*.test.js",
+    "test:deno": "deno test -A ./test/deno/*.test.ts",
+    "test:all": "yarn test:cjs && yarn test:deno"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FullStackPlayer/fsp.JExecutor.git"
+  },
+  "keywords": [
+    "typescript",
+    "Deno",
+    "JsonSchema"
+  ],
+  "author": "FullStackPlayer",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/FullStackPlayer/fsp.JExecutor",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "files": [
+    "/dist",
+    "/test",
+    "/sample"
+  ]
+}
